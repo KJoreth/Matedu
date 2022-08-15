@@ -1,7 +1,12 @@
+using Matedu.Data.Context;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+var connectionString = builder.Configuration["ConnectionStrings:DefaultConnection"];
+builder.Services.AddDbContext<MateduContext>(options => options.UseSqlServer(connectionString));
 
 var app = builder.Build();
 
@@ -18,6 +23,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
