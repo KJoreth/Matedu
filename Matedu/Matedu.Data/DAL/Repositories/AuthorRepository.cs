@@ -5,6 +5,16 @@
         public AuthorRepository(MateduContext context) : base(context) { }
 
         public MateduContext MateduContext => _context as MateduContext;
+
+        public async Task<Author> GetSingleByIdAsync(int id)
+        {
+            if (!await AnyByIdAsync(id))
+                throw new ResourceNotFoundException($"Author with id: {id} was not found");
+
+            return await MateduContext.Authors
+                .Where(x => x.Id == id)
+                .FirstOrDefaultAsync();
+        }
         public async Task<Author> GetSingleWithAllFieldsByIdAsync(int id)
         {
             if (!await AnyByIdAsync(id))
@@ -37,7 +47,7 @@
             => await MateduContext.Authors
             .Where(x => x.Id == id)
             .AnyAsync();
-    
+
     }
     
 }

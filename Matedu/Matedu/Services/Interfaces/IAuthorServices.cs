@@ -2,8 +2,11 @@
 {
     public interface IAuthorServices
     {
+        Task CreateAsync(AuthorCreateDTO model);
         Task DeleteAsync(int id);
+        Task EditAsync(AuthorEditDTO model);
         Task<List<AuthorSimpleDTO>> GetAllAsync();
-        Task<AuthorDetailedDTO> GetSingleAsync(int id);
+        Task<AuthorEditDTO> GetSingleToEditAsync(int id);
+        Task<AuthorDetailedDTO> GetSingleWithAllFieldsAsync(int id);
     }
 }
