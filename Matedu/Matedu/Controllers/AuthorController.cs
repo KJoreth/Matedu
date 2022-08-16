@@ -15,5 +15,12 @@ namespace Matedu.Controllers
             List<AuthorSimpleDTO> authors = await _authorServices.GetAllAsync();
             return View(authors);
         }
+
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _authorServices.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

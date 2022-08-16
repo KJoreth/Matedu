@@ -16,5 +16,12 @@
             List<Author> authors = await _unitOfWork.AuthorRepository.GetAllWithMaterialsAsync();
             return _mapper.Map<List<AuthorSimpleDTO>>(authors);
         }
+
+        public async Task DeleteAsync(int id)
+        {
+            Author author = await _unitOfWork.AuthorRepository.GetSingleWithAllFieldsByIdAsync(id);
+            await _unitOfWork.AuthorRepository.RemoveAsync(author);
+            await _unitOfWork.CompleteUnitAsync();
+        }
     }
 }
