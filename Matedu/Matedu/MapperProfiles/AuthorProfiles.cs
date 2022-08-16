@@ -5,6 +5,7 @@
         public AuthorProfiles()
         {
             CreateMap<Author, AuthorSimpleDTO>();
+            CreateMap<Author, AuthorDetailedDTO>();
         }
     }
 }

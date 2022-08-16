@@ -10,6 +10,7 @@ namespace Matedu.Controllers
             => _authorServices = authorServices;
 
 
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             List<AuthorSimpleDTO> authors = await _authorServices.GetAllAsync();
@@ -21,6 +22,13 @@ namespace Matedu.Controllers
         {
             await _authorServices.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
+        {
+            var author = await _authorServices.GetSingleAsync(id);
+            return View(author);
         }
     }
 }

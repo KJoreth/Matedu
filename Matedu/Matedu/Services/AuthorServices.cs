@@ -23,5 +23,11 @@
             await _unitOfWork.AuthorRepository.RemoveAsync(author);
             await _unitOfWork.CompleteUnitAsync();
         }
+
+        public async Task<AuthorDetailedDTO> GetSingleAsync(int id)
+        {
+            Author author = await _unitOfWork.AuthorRepository.GetSingleWithAllFieldsByIdAsync(id);
+            return _mapper.Map<AuthorDetailedDTO>(author);
+        }
     }
 }

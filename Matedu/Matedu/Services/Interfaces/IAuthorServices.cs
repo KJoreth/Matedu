@@ -4,5 +4,6 @@
     {
         Task DeleteAsync(int id);
         Task<List<AuthorSimpleDTO>> GetAllAsync();
+        Task<AuthorDetailedDTO> GetSingleAsync(int id);
     }
 }

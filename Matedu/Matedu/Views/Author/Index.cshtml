@@ -12,6 +12,12 @@
                 <td>@author.Name</td>
                 <td>@author.MaterialCounter</td>
                 <td>
+                    <a asp-action="details" asp-route-id="@author.Id" 
+                        class="btn btn-success m-1">
+                        Details
+                    </a>
+                </td>
+                <td>
                     <a asp-action="delete" asp-route-id="@author.Id" 
                         class="btn btn-danger m-1"
                         onclick="return confirm('Are you sure you want to delete this Author?')">
