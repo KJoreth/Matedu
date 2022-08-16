@@ -1,0 +1,17 @@
+﻿@model IEnumerable<AuthorSimpleDTO>;
+
+<div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Materials Count</th>
+        </tr>
+        @foreach(AuthorSimpleDTO author in Model)
+        {
+            <tr>
+                <td>@author.Name</td>
+                <td>@author.MaterialCounter</td>
+            </tr>
+        }
+    </table>
+</div>

@@ -15,6 +15,11 @@
                 .Include(x => x.Materials)
                 .FirstOrDefaultAsync();
         }
+
+        public async Task<List<Author>> GetAllWithMaterialsAsync()
+            => await MateduContext.Authors
+                .Include(x => x.Materials)
+                .ToListAsync();
     
         public async Task<Author> GetSingleWithAllFieldsAndReviewsByIdAsync(int id)
         {

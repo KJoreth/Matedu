@@ -1,6 +1,7 @@
 using Matedu.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Matedu.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,11 +9,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 var connectionString = builder.Configuration["ConnectionStrings:DefaultConnection"];
-builder.Services.AddDbContext<MateduContext>(options => options.UseSqlServer(connectionString));
-builder.Services.AddDefaultIdentity<IdentityUser>()
-    .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<MateduContext>();
+builder.Services.AddDb(connectionString);
+builder.Services.AddDAL();
+builder.Services.AddRoles();
+builder.Services.AddServices();
 builder.Services.AddRazorPages();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 
 
 
