@@ -1,0 +1,11 @@
+ID | MATERIALID | TEXT | POINTS
+1|1|Could be better|3
+2|2|Amazing|10
+3|3|Seen worse|5
+4|4|Trol review|10
+5|5|OK|7
+6|6|I would do it better|2
+7|7|That's what i needed|9
+8|8|Hey thats pretty good|7
+9|9|Yaas queen|10
+10|10|just ok|7

@@ -1,0 +1,6 @@
+Id | Name | Definition
+1|Video Tutorial|Video material that focuses mostly on guiding step-by-step in dedicated topic
+2|Advanced Book|Book describing topic for advanced programers
+3|Beginner Book|Book describing topic for beginner programers
+4|Codecool article|Article on Codecool page describing topic
+5|Web Article|Article on the internet describing topic

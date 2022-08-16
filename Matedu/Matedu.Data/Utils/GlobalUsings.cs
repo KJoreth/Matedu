@@ -1,0 +1,9 @@
+﻿global using Microsoft.EntityFrameworkCore;
+global using Matedu.Data.DAL.Interfaces;
+global using Matedu.Data.Entities;
+global using Matedu.Data.Context;
+global using Matedu.Data.Exceptions;
+global using Matedu.Data.Seeder.EntitiesSeeders.Seeders;
+global using Matedu.Data.Seeder;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;

@@ -1,0 +1,6 @@
+﻿ID | Name | Description
+1|Karol Jaśkowiec|Junior software developer in Motorola Solutions
+2|Codecool|Company
+3|AGH|University of Science and Technology
+4|Dominik Starzyk|Codecool mentor
+5|Kamil Szmagier|Self proclaimed Motorola Solutions Senior developer
