@@ -1,11 +1,11 @@
-﻿
-namespace Matedu.MapperProfiles
+﻿namespace Matedu.MapperProfiles
 {
     public class TypeProfiles : Profile
     {
         public TypeProfiles()
         {
             CreateMap<MaterialType, TypeSimpleDTO>();
+            CreateMap<MaterialType, TypeDetailedDTO>();
         }
     }
 }

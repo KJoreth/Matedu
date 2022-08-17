@@ -14,5 +14,14 @@ namespace Matedu.Controllers
             var types = await _typeServices.GetAllAsync();
             return View(types);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
+        {
+            var type = await _typeServices.GetSingleAsync(id);
+            return View(type);
+        }
+
+        
     }
 }

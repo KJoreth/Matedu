@@ -1,0 +1,12 @@
+﻿@model TypeDetailedDTO
+
+<p>Name: @Model.Name</p>
+<p>Definition: @Model.Definition</p>
+<p>Materials:</p>
+@foreach(var material in Model.Materials)
+{
+    <div class="d-flex">
+        <p>@material.Title</p>
+        <a asp-controller="material" asp-action="detials" asp-route-id="@material.Id" class="btn btn-primary">Details</a>
+    </div>
+}

@@ -17,5 +17,11 @@
             return _mapper.Map<List<TypeSimpleDTO>>(types);
         }
 
+        public async Task<TypeDetailedDTO> GetSingleAsync(int id)
+        {
+            var type = await _unitOfWork.TypeRepository.GetSingleWithAllFieldsByIdAsync(id);
+            return _mapper.Map<TypeDetailedDTO>(type);
+        }
+
     }
 }
