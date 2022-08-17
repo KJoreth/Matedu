@@ -12,3 +12,5 @@ global using Microsoft.EntityFrameworkCore;
 global using Matedu.Services;
 global using Matedu.DTOs.MaterialDTOs;
 global using System.ComponentModel.DataAnnotations;
+global using Matedu.DTOs.TypeDTOs;
+

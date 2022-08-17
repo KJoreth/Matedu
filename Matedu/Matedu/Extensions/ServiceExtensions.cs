@@ -22,6 +22,7 @@ namespace Matedu.Extensions
         public static void AddServices(this IServiceCollection service)
         {
             service.AddScoped<IAuthorServices, AuthorServices>();
+            service.AddScoped<ITypeServices, TypeServices>();
         }
     }
 }
