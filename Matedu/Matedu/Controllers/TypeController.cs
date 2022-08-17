@@ -22,6 +22,30 @@ namespace Matedu.Controllers
             return View(type);
         }
 
-        
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var type = await _typeServices.GetSingleToEditAsync(id);
+            return View(type);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(TypeEditDTO model)
+        {
+            if (ModelState.IsValid)
+            {
+                await _typeServices.EditAsync(model);
+                return RedirectToAction(nameof(Index));
+            }
+            ViewBag.Msg = "An error accured. Your entry have not been submited";
+            return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _typeServices.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

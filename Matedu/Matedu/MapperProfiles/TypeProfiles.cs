@@ -6,6 +6,7 @@
         {
             CreateMap<MaterialType, TypeSimpleDTO>();
             CreateMap<MaterialType, TypeDetailedDTO>();
+            CreateMap<MaterialType, TypeEditDTO>().ReverseMap();
         }
     }
 }

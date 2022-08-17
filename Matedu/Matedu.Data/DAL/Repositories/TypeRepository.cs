@@ -18,6 +18,16 @@ namespace Matedu.Data.DAL.Repositories
                 .FirstOrDefaultAsync();
         }
 
+        public async Task<MaterialType> GetSingleByIdAsync(int id)
+        {
+            if (!await AnyByIdAsync(id))
+                throw new ResourceNotFoundException($"Type with id: {id} was not found");
+
+            return await MateduContext.Types
+                .Where(x => x.Id == id)
+                .FirstOrDefaultAsync();
+        }
+
         public async Task<bool> AnyByIdAsync(int id)
             => await MateduContext.Types
             .Where(x => x.Id == id)

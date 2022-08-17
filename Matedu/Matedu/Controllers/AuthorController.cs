@@ -17,7 +17,7 @@ namespace Matedu.Controllers
             return View(authors);
         }
 
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             await _authorServices.DeleteAsync(id);

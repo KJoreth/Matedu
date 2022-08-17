@@ -23,5 +23,25 @@
             return _mapper.Map<TypeDetailedDTO>(type);
         }
 
+        public async Task<TypeEditDTO> GetSingleToEditAsync(int id)
+        {
+            var type = await _unitOfWork.TypeRepository.GetSingleByIdAsync(id);
+            return _mapper.Map<TypeEditDTO>(type);
+        }
+
+        public async Task EditAsync(TypeEditDTO model)
+        {
+            var type = await _unitOfWork.TypeRepository.GetSingleByIdAsync(model.Id);
+            _mapper.Map(model, type);
+            await _unitOfWork.CompleteUnitAsync();
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var type = await _unitOfWork.TypeRepository.GetSingleByIdAsync(id);
+            await _unitOfWork.TypeRepository.RemoveAsync(type);
+            await _unitOfWork.CompleteUnitAsync();
+        }
+
     }
 }
