@@ -43,5 +43,12 @@
             await _unitOfWork.CompleteUnitAsync();
         }
 
+        public async Task CreateAsync(TypeCreateDTO model)
+        {
+            var type = _mapper.Map<MaterialType>(model);
+            await _unitOfWork.TypeRepository.AddAsync(type);
+            await _unitOfWork.CompleteUnitAsync();
+        }
+
     }
 }

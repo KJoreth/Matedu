@@ -42,6 +42,23 @@ namespace Matedu.Controllers
         }
 
         [HttpGet]
+        public IActionResult Create()
+            => View();
+
+        [HttpPost]
+        public async Task<IActionResult> Create(TypeCreateDTO model)
+        {
+            if (ModelState.IsValid)
+            {
+                await _typeServices.CreateAsync(model);
+                return RedirectToAction(nameof(Index));
+            }
+            ViewBag.Msg = "An error accured. Your entry have not been submited";
+            return View(model);
+        }
+
+
+        [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             await _typeServices.DeleteAsync(id);

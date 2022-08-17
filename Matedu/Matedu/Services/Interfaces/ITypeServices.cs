@@ -2,6 +2,7 @@
 {
     public interface ITypeServices
     {
+        Task CreateAsync(TypeCreateDTO model);
         Task DeleteAsync(int id);
         Task EditAsync(TypeEditDTO model);
         Task<List<TypeSimpleDTO>> GetAllAsync();
