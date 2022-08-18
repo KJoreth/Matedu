@@ -1,0 +1,14 @@
+﻿@model MaterialDetailedDTO
+
+<p>Title: @Model.Title</p>
+<p>Author: @Model.Author.Name</p>
+<p>Type: @Model.Type.Name</p>
+<p>Location: @Model.Location</p>
+<p>Score: @Model.AverageScore</p>
+<p>Reviews:</p>
+@foreach(ReviewSimpleDTO review in Model.Reviews)
+{
+    <hr/>
+    <p>Score: @review.Points / 10</p>
+    <p>@review.Text</p>
+}

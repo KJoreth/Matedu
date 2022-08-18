@@ -15,5 +15,11 @@
             var materials = await _unitOfWork.MaterialRepository.GetAllWithAuthorAndTypeAsync();
             return _mapper.Map<List<MaterialSearchDTO>>(materials);
         }
+
+        public async Task<MaterialDetailedDTO> GetSingleAsync(int id)
+        {
+            var material = await _unitOfWork.MaterialRepository.GetSingleWithAllFieldsByIdAsync(id);
+            return _mapper.Map<MaterialDetailedDTO>(material);
+        }
     }
 }

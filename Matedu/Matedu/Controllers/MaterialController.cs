@@ -37,5 +37,12 @@ namespace Matedu.Controllers
 
             return View(materials);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
+        {
+            var material = await _materialServices.GetSingleAsync(id);
+            return View(material);
+        }
     }
 }
