@@ -20,6 +20,12 @@ namespace Matedu.Data.DAL.Repositories
                 .FirstOrDefaultAsync();
         }
 
+        public async Task<List<Material>> GetAllWithAuthorAndTypeAsync()
+            => await MateduContext.Materials
+                .Include(x => x.Author)
+                .Include(x => x.Type)
+                .ToListAsync();
+
 
         public async Task<List<Material>> GetAllByTypeIdAsync(int typeId)
         {

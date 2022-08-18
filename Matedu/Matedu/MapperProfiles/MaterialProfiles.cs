@@ -6,6 +6,7 @@ namespace Matedu.MapperProfiles
         public MaterialProfiles()
         {
             CreateMap<Material, MaterialSimpleDTO>();
+            CreateMap<Material, MaterialSearchDTO>();
         }
     }
 }

@@ -23,6 +23,7 @@ namespace Matedu.Extensions
         {
             service.AddScoped<IAuthorServices, AuthorServices>();
             service.AddScoped<ITypeServices, TypeServices>();
+            service.AddScoped<IMaterialServices, MaterialServices>();
         }
     }
 }
