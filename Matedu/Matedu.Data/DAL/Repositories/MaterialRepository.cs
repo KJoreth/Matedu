@@ -40,7 +40,7 @@ namespace Matedu.Data.DAL.Repositories
                 .ToListAsync();
         }
 
-        public async Task<Material> GetSingleAsNoTrackingByIdAsync(int id)
+        public async Task<Material> GetSingleByIdAsync(int id)
         {
             if (!await AnyByIdAsync(id))
                 throw new ResourceNotFoundException($"Material with id: {id} was not found");

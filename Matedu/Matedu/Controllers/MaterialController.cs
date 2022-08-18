@@ -44,5 +44,22 @@ namespace Matedu.Controllers
             var material = await _materialServices.GetSingleAsync(id);
             return View(material);
         }
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var model = await _materialServices.GetViewModelForEditAsync(id);
+            return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult>Edit(MaterialEditViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                await _materialServices.UpdateAsync(model);
+                return RedirectToAction(nameof(Index));
+            }
+            ViewBag.Msg = "An error accured. Your entry have not been submited";
+            return View(model);
+        }
     }
 }

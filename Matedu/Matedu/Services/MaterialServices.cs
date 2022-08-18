@@ -1,4 +1,5 @@
-﻿namespace Matedu.Services
+﻿
+namespace Matedu.Services
 {
     public class MaterialServices : IMaterialServices
     {
@@ -20,6 +21,34 @@
         {
             var material = await _unitOfWork.MaterialRepository.GetSingleWithAllFieldsByIdAsync(id);
             return _mapper.Map<MaterialDetailedDTO>(material);
+        }
+
+        public async Task<MaterialEditViewModel> GetViewModelForEditAsync(int id)
+        {
+            MaterialEditViewModel model = new();
+            var material = await _unitOfWork.MaterialRepository.GetSingleWithAllFieldsByIdAsync(id);
+            var authors = await _unitOfWork.AuthorRepository.GetAllAsync();
+            var types = await _unitOfWork.TypeRepository.GetAllAsync();
+            model.Author = material.Author.Id;
+            model.Type = material.Type.Id;
+            authors.ForEach(x => model.Authors.Add(new SelectListItem { Text = x.Name, Value = x.Id.ToString()}));
+            types.ForEach(x => model.Types.Add(new SelectListItem { Text = x.Name, Value =  x.Id.ToString()}));
+            model.MaterialId = id;
+            model.MaterialTitle = material.Title;
+            model.MaterialLocation = material.Location;
+            return model;
+        }
+
+        public async Task UpdateAsync(MaterialEditViewModel model)
+        {
+            var material = await _unitOfWork.MaterialRepository.GetSingleWithAllFieldsByIdAsync(model.MaterialId);
+            var author = await _unitOfWork.AuthorRepository.GetSingleWithAllFieldsByIdAsync(model.Author);
+            var type = await _unitOfWork.TypeRepository.GetSingleWithAllFieldsByIdAsync(model.Type);
+            material.Author = author;
+            material.Type = type;
+            material.Title = model.MaterialTitle;
+            material.Location = model.MaterialLocation;
+            await _unitOfWork.CompleteUnitAsync();
         }
     }
 }
