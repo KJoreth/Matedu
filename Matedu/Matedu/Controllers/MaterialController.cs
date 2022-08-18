@@ -9,16 +9,20 @@ namespace Matedu.Controllers
             => _materialServices = materialServices;
 
         [HttpGet]
-        public async Task<IActionResult> Index(string sortOrder)
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
-            ViewData["NameSortParm"] = sortOrder == "name" ? "" : "name";
+            ViewData["TitleSortParm"] = sortOrder == "title" ? "" : "title";
             ViewData["AuthorSortParm"] = sortOrder == "author" ? "" : "author";
             ViewData["TypeSortParm"] = sortOrder == "type" ? "" : "type";
+            ViewData["SearchParm"] = searchString;
             var materials = await _materialServices.GetAllAsync();
+
+            if (!string.IsNullOrEmpty(searchString))
+                materials = materials.Where(m => m.Title.ToLower().Contains(searchString.ToLower())).ToList();
 
             switch (sortOrder)
             {
-                case "name":
+                case "title":
                     materials = materials.OrderBy(m => m.Title).ToList();
                     break;
                 case "author":
