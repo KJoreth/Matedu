@@ -1,4 +1,6 @@
 ﻿
+using Matedu.ViewModels.MaterialViewModels;
+
 namespace Matedu.Services
 {
     public class MaterialServices : IMaterialServices
@@ -48,6 +50,36 @@ namespace Matedu.Services
             material.Type = type;
             material.Title = model.MaterialTitle;
             material.Location = model.MaterialLocation;
+            await _unitOfWork.CompleteUnitAsync();
+        }
+
+        public async Task<MaterialCreateViewModel> GetViewModelForCreateAsync()
+        {
+            MaterialCreateViewModel model = new();
+            var authors = await _unitOfWork.AuthorRepository.GetAllAsync();
+            var types = await _unitOfWork.TypeRepository.GetAllAsync();
+            authors.ForEach(x => model.Authors.Add(new SelectListItem { Text = x.Name, Value = x.Id.ToString() }));
+            types.ForEach(x => model.Types.Add(new SelectListItem { Text = x.Name, Value = x.Id.ToString() }));
+            return model;
+        }
+
+        public async Task CreateAsync(MaterialCreateViewModel model)
+        {
+            Material material = new()
+            {
+                Title = model.MaterialTitle,
+                Location = model.MaterialLocation,
+                AuthorId = model.Author,
+                TypeId = model.Type
+            };
+            await _unitOfWork.MaterialRepository.AddAsync(material);
+            await _unitOfWork.CompleteUnitAsync();
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var material = await _unitOfWork.MaterialRepository.GetSingleByIdAsync(id);
+            await _unitOfWork.MaterialRepository.RemoveAsync(material);
             await _unitOfWork.CompleteUnitAsync();
         }
     }

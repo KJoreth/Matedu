@@ -24,6 +24,7 @@ namespace Matedu.Extensions
             service.AddScoped<IAuthorServices, AuthorServices>();
             service.AddScoped<ITypeServices, TypeServices>();
             service.AddScoped<IMaterialServices, MaterialServices>();
+            service.AddScoped<IReviewServices, ReviewServices>();
         }
     }
 }

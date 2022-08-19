@@ -1,5 +1,4 @@
-﻿
-namespace Matedu.ViewModels
+﻿namespace Matedu.ViewModels.MaterialViewModels
 {
     public class MaterialEditViewModel
     {
@@ -10,7 +9,7 @@ namespace Matedu.ViewModels
         [MaxLength(255)]
         public string MaterialLocation { get; set; }
         [Required]
-        public int Author{ get; set; }
+        public int Author { get; set; }
         public List<SelectListItem> Authors { get; set; } = new();
         [Required]
         public int Type { get; set; }

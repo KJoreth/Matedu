@@ -14,6 +14,7 @@ global using Matedu.DTOs.MaterialDTOs;
 global using System.ComponentModel.DataAnnotations;
 global using Matedu.DTOs.TypeDTOs;
 global using Matedu.DTOs.ReviewDTOs;
-global using Matedu.ViewModels;
+global using Matedu.ViewModels.MaterialViewModels;
+global using Matedu.ViewModels.ReviewViewModels;
 global using Microsoft.AspNetCore.Mvc.Rendering;
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Matedu.ViewModels.MaterialViewModels;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Matedu.Controllers
 {
@@ -60,6 +61,32 @@ namespace Matedu.Controllers
             }
             ViewBag.Msg = "An error accured. Your entry have not been submited";
             return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Create()
+        {
+            var model = await _materialServices.GetViewModelForCreateAsync();
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(MaterialCreateViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                await _materialServices.CreateAsync(model);
+                return RedirectToAction(nameof(Index));
+            }
+            ViewBag.Msg = "An error accured. Your entry have not been submited";
+            return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _materialServices.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
