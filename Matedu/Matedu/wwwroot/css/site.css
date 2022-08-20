@@ -16,3 +16,17 @@ html {
 body {
   margin-bottom: 60px;
 }
+header{
+    
+}
+
+.navbar {
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-left: solid 0.5px;
+    border-right: solid 0.5px;
+    border-bottom: solid 1px;
+}
