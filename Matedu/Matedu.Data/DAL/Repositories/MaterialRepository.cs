@@ -25,7 +25,12 @@ namespace Matedu.Data.DAL.Repositories
                 .Include(x => x.Author)
                 .Include(x => x.Type)
                 .ToListAsync();
-
+        public async Task<List<Material>> GetAllWithAllFieldsAsync()
+            => await MateduContext.Materials
+                .Include(x => x.Author)
+                .Include(x => x.Type)
+                .Include(x => x.Reviews)
+                .ToListAsync();
 
         public async Task<List<Material>> GetAllByTypeIdAsync(int typeId)
         {

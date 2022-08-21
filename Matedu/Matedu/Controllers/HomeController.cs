@@ -6,16 +6,14 @@ namespace Matedu.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IHomeServices _homeServices;
+        public HomeController(IHomeServices homeServices)
+            => _homeServices = homeServices;
 
-        public HomeController(ILogger<HomeController> logger)
+        public async Task<IActionResult> Index()
         {
-            _logger = logger;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
+            var model = await _homeServices.GetViewModelAsync();
+            return View(model);
         }
 
         public IActionResult Privacy()

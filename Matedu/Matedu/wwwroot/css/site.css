@@ -13,14 +13,22 @@ html {
   min-height: 100%;
 }
 
+html{
+    font-size: 14px;
+}
+
 body {
   margin-bottom: 60px;
+  background: #333;
+  color: #fff;
 }
-header{
-    
+
+main{
+    height: 100%;
 }
 
 .navbar {
+    border-bottom: solid 1px #008ed6;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     width: 90%;
@@ -28,5 +36,11 @@ header{
     margin-right: auto;
     border-left: solid 0.5px;
     border-right: solid 0.5px;
-    border-bottom: solid 1px;
+    border-color: #008ed6;
+    opacity: 0.8;
+    font-size: 1.2rem;
+}
+
+footer {
+    border-top: solid #008ed6 1px;
 }

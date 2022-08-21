@@ -1,0 +1,40 @@
+﻿#home-section {
+    background-image: url(../../img/home.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 700px;
+}
+
+.dark-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 700px;
+    background: rgba(0,0,0,0.7);
+}
+
+.home-inner{
+    padding-top: 150px;
+}
+
+.home-card {
+    border-radius: 20%;
+    background-color: #008ed6;
+}
+
+.icon-check{
+    color: #008ed6;
+}
+
+/*@media screen and (max-width: 576px) {
+    #home-section {
+        background-image: none;
+        background-color: #333;
+    }
+
+    .dark-overlay{
+        background: none;
+    }
+}*/
