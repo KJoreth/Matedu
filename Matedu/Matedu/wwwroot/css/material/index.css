@@ -40,8 +40,20 @@ h2 {
     font-size: larger;
 }
 
+.title{
+    width:40%;
+}
+
+.info{
+    width: 40%;
+}
+
 @media screen and (max-width: 768px) {
     .material-section{
         margin-top: 80px;
+    }
+    .title{
+        width: 100%;
+        margin-bottom: 1em;
     }
 }
