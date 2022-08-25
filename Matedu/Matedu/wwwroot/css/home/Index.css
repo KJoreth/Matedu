@@ -21,20 +21,12 @@
 
 .home-card {
     border-radius: 20%;
-    background-color: #008ed6;
+    background-color: #4A42BD;
+    border: 5px solid;
+    border-color: #4A42BD;
+    box-shadow: 5px 5px #E2BB4F;
 }
 
-.icon-check{
-    color: #008ed6;
+.icon-check {
+    color: #E2BB4F;
 }
-
-/*@media screen and (max-width: 576px) {
-    #home-section {
-        background-image: none;
-        background-color: #333;
-    }
-
-    .dark-overlay{
-        background: none;
-    }
-}*/

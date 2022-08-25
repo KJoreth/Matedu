@@ -19,7 +19,7 @@
                                 <i class="icon-check icon-3x"></i>
                             </div>
                             <div class="align-self-center ps-4">
-                                <h4 class="m-0 p-0"><u>@Model.MaterialCounter</u> Materials available</h4>
+                                <h4 class="m-0 p-0">@Model.MaterialCounter Materials available</h4>
                             </div>
                         </div>
                         <div class="d-flex align-items-center">
@@ -27,7 +27,7 @@
                                 <i class="icon-check icon-3x"></i>
                             </div>
                             <div class="align-self-center ps-4">
-                                <h4 class="m-0 p-0">Written by <u>@Model.AuthorCounter</u> Authors</h4>
+                                <h4 class="m-0 p-0">Written by @Model.AuthorCounter Authors</h4>
                             </div>
                         </div>
                         <div class="d-flex align-items-center">
@@ -35,7 +35,7 @@
                                 <i class="icon-check icon-3x"></i>
                             </div>
                             <div class="align-self-center ps-4">
-                                <h4 class="m-0 p-0">Divided into <u>@Model.TypeCounter</u> Categories</h4>
+                                <h4 class="m-0 p-0">Divided into @Model.TypeCounter Categories</h4>
                             </div>
                         </div>
                     </div>
@@ -44,15 +44,15 @@
                          <div class="card text-center home-card">
                             <div class="card-body d-flex flex-column justify-content-around" style="height: 20em">
                                 <div>
-                                      <h3 class="card-title">Join us!</h3>
-                                      <h5 class="card-subtitle mb-2 text-dark">Start your Matedu journey today!</h5>
+                                      <h3 class="card-title"><b>Join us!</b></h3>
+                                      <h5 class="card-subtitle mb-2 text-purple"><b>Start your Matedu journey today!</b></h5>
                                 </div>
                                 <div>
                                       <p class="card-text">By joining the community you can express your opinions on educational materials</p>
                                 </div>
                                 <div>
-                                      <a class="btn btn-success" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
-                                      <a class="btn btn-warning" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                                      <a class="btn btn-yellow" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                                      <a class="btn btn-yellow" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
                                 </div> 
                             </div>
                           </div>
@@ -108,19 +108,19 @@
             <div class="card text-center home-card">
                 <div class="card-body d-flex flex-column justify-content-around" style="height: 20em">
                     <div>
-                          <h3 class="card-title">@material.Title</h3>
-                          <h5 class="card-subtitle mb-2 text-dark">@material.Type.Name</h5>
+                          <h3 class="card-title"><b>@material.Title</b></h3>
+                          <h5 class="card-subtitle mb-2 text-purple"><b>@material.Type.Name</b></h5>
                     </div>
                     <div>
                           <h6 class="card-text">Autor: @material.Author.Name <br />Score: @material.AverageScore / 10</h6>
                     </div>
                     <div>
-                          <a class="btn btn-success" asp-controller="material" asp-action="details" asp-route-id="@material.Id">Details</a>
+                          <a class="btn btn-yellow" asp-controller="material" asp-action="details" asp-route-id="@material.Id">Details</a>
                     </div> 
                 </div>
             </div>
         </div> 
         }
     </div>
-    <a class="btn btn-danger px-5 mt-5" asp-controller="Material" asp-action="Index">See more!</a>
+    <a class="btn btn-green px-5 mt-5" asp-controller="Material" asp-action="Index">See more!</a>
 </div>

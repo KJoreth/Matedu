@@ -1,5 +1,7 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
@@ -8,23 +10,20 @@ html {
   }
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-html{
-    font-size: 14px;
-}
-
 body {
-  margin-bottom: 60px;
-  background: #333;
-  color: #fff;
+    margin-bottom: 60px;
+    background: #371E7B;
+    color: #D6D7DF;
+    font-family: 'Playfair Display', serif;
 }
 
 main{
     height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: #D6D7DF;
 }
 
 .navbar {
@@ -36,11 +35,48 @@ main{
     margin-right: auto;
     border-left: solid 0.5px;
     border-right: solid 0.5px;
-    border-color: #008ed6;
+    border-color: #E2BB4F;
     opacity: 0.8;
     font-size: 1.2rem;
+    background-color: #371E7B;
+}
+
+.navbar-brand {
+    color: #E2BB4F;
+}
+
+.nav-link {
+    color: #D6D7DF;
+}
+
+.navbar-toggler {
+    
+}
+
+.navbar-toggler-icon {
+    color: #D6D7DF;
 }
 
 footer {
-    border-top: solid #008ed6 1px;
+    border-top: solid #E2BB4F 1px;
+}
+
+.btn-yellow {
+    background-color: #E2BB4F;
+}
+
+.btn-green {
+    background-color: #7CA20C;
+}
+
+.text-purple {
+    color: #8E5AE9;
+}
+
+.bg-blue {
+    background-color: #4A42BD;
+}
+
+.color-yellow {
+    color: #E2BB4F;
 }

@@ -6,5 +6,6 @@
         public string Title { get; set; }
         public AuthorSimpleDTO Author { get; set; }
         public TypeSimpleDTO Type { get; set; }
+        public int AverageScore { get; set; }
     }
 }

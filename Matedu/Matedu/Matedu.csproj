@@ -12,6 +12,13 @@
 		</None>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Content Remove="wwwroot\css\material\index.css" />
+	  <Content Remove="wwwroot\img\Baner.jpg" />
+	  <Content Remove="wwwroot\img\baner2.jpg" />
+	  <Content Remove="wwwroot\img\baner3.jpg" />
+	</ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.8" />

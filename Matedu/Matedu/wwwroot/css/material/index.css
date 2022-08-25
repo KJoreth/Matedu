@@ -1,0 +1,58 @@
+﻿.material-container{
+    padding-top: 100px;
+}
+/*.search-section {
+    background-image: url(../../img/baner3.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    border-radius: 10px;
+    min-height: 120px;
+    margin-top: 100px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}*/
+.search-field {
+    background-color: #4A42BD;
+    border-radius: 50px;
+}
+
+.icon-search {
+    color: #E2BB4F;
+}
+
+input {
+    border-radius: 10px;
+    border: 4px solid;
+    border-color: #E2BB4F;
+}
+
+h2 {
+    color: #8E5AE9;
+}
+
+.material-section {
+    margin-top: 100px;
+}
+
+.material-box {
+    background-color: #8E5AE9;
+    border-radius: 10px;
+    border-color: #4A42BD;
+    box-shadow: 5px 5px #E2BB4F;
+}
+
+.filters {
+    border-top: solid 1px #E2BB4F;
+}
+
+.filter {
+    font-size: larger;
+}
+
+@media screen and (max-width: 768px) {
+    .material-section{
+        margin-top: 80px;
+    }
+}

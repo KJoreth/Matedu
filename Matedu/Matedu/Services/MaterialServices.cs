@@ -15,7 +15,7 @@ namespace Matedu.Services
 
         public async Task<List<MaterialSearchDTO>> GetAllAsync()
         {
-            var materials = await _unitOfWork.MaterialRepository.GetAllWithAuthorAndTypeAsync();
+            var materials = await _unitOfWork.MaterialRepository.GetAllWithAllFieldsAsync();
             return _mapper.Map<List<MaterialSearchDTO>>(materials);
         }
 
