@@ -13,10 +13,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Content Remove="wwwroot\css\material\details.css" />
 	  <Content Remove="wwwroot\css\material\index.css" />
-	  <Content Remove="wwwroot\img\Baner.jpg" />
-	  <Content Remove="wwwroot\img\baner2.jpg" />
-	  <Content Remove="wwwroot\img\baner3.jpg" />
 	</ItemGroup>
 
   <ItemGroup>

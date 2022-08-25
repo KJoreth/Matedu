@@ -1,18 +1,7 @@
 ﻿.material-container{
     padding-top: 100px;
 }
-/*.search-section {
-    background-image: url(../../img/baner3.jpg);
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    border-radius: 10px;
-    min-height: 120px;
-    margin-top: 100px;
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-}*/
+
 .search-field {
     background-color: #4A42BD;
     border-radius: 50px;

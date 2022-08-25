@@ -1,0 +1,32 @@
+﻿.material-section {
+    margin-top: 100px;
+}
+
+.material-title {
+    border-radius: 50px;
+    width: 50%;
+    box-shadow: 5px 5px #E2BB4F;
+}
+
+.detail{
+    font-size: larger;
+}
+
+.review-box {
+    background-color: #4A42BD;
+    border-radius: 10px;
+    box-shadow: 5px 5px #E2BB4F;
+}
+
+.material-info {
+    box-shadow: 5px 5px #E2BB4F;
+    border-radius: 10px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .material-title{
+        width: 75%;
+    }
+}
+

@@ -1,15 +1,79 @@
 ﻿@model MaterialDetailedDTO
-
-<p>Title: @Model.Title</p>
-<p>Author: @Model.Author.Name</p>
-<p>Type: @Model.Type.Name</p>
-<p>Location: @Model.Location</p>
-<p>Score: @Model.AverageScore</p>
-<p>Reviews:</p>
-@foreach(ReviewSimpleDTO review in Model.Reviews)
-{
-    <hr/>
-    <p>Score: @review.Points / 10</p>
-    <p>@review.Text</p>
+@{
+    ViewData["Title"] = "Materials";
 }
-<a asp-controller="review" asp-action="create" asp-route-materialId="@Model.Id" class="btn btn-primary">Add Review</a>
+<link rel="stylesheet" href="~/css/material/details.css" asp-append-version="true" />
+
+<div class="container material-section">
+    <div class="material-title bg-purple ms-auto me-auto text-center py-4 px-4">
+        <h2>@Model.Title</h2>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12 col-md-6 col-lg-7">
+            <div class="bg-purple material-info">
+                <div class="d-flex flex-column justify-content-between align-items-center px-5 pt-3 mb-4 w-100">
+                    <div class="mb-2 w-100 d-flex justify-content-between align-items-center">
+                        <i class="icon-user icon-2x me-3"></i>
+                        <a class="w-75 detail" asp-controller="author" asp-action="details" asp-route-id="@Model.Author.Id">Author: @Model.Author.Name</a>
+                    </div>
+                    <div class="mb-2 d-flex w-100 justify-content-between align-items-center">
+                        <i class="icon-file icon-2x me-3"></i>
+                        <a class="w-75 detail" asp-controller="type" asp-action="details" asp-route-id="@Model.Type.Id">Category: @Model.Type.Name</a>
+                    </div>
+                    <div class="mb-2 d-flex w-100 justify-content-between align-items-center">
+                        <i class="icon-pushpin icon-2x me-3"></i>
+                        <p class="m-0 w-75 detail">Location: @Model.Location</p>
+                    </div>
+                    <div class="mb-2 d-flex w-100 justify-content-between align-items-center">
+                        <i class="icon-heart icon-2x me-3"></i>
+                        <p class="m-0 w-75 detail">Score: @Model.AverageScore / 10</p>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mb-4">
+                <a class="btn btn-yellow w-100" asp-controller="review" asp-action="create" asp-route-materialId="@Model.Id">Add review</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-5">
+            <div class="bg-blue py-3 px-3">
+                @foreach (var review in Model.Reviews)
+                if (User.IsInRole("Admin"))
+                {
+                    <div class="review-box py-2 mb-4">
+                        <div class="row">
+                            <div class="col d-flex justify-content-center align-items-center color-yellow">
+                                <b>User name</b>
+                            </div>
+                            <div class="col d-flex flex-column justify-content-center align-items-start">
+                                Score: @review.Points / 10
+                                <div class="review-text">
+                                    @review.Text
+                                </div>
+                            </div>
+                            <div class="col d-flex justify-content-around align-items-center">
+                                <a asp-controller="review" asp-action="delete" asp-route-id="@review.Id" 
+                                 onclick="return confirm('Are you sure you want to delete this Review?')" class="btn btn-yellow">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="review-box py-2 mb-4">
+                        <div class="row">
+                            <div class="col d-flex justify-content-center align-items-center color-yellow">
+                                <b>User name</b>
+                            </div>
+                            <div class="col d-flex flex-column justify-content-center align-items-start">
+                                Score: @review.Points / 10
+                                <div class="review-text">
+                                    @review.Text
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+         </div>
+    </div>    
+</div>
