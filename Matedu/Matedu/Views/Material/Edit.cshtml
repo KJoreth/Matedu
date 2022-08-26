@@ -58,54 +58,6 @@
     }
 </div>
 
-
-
-@*@using (Html.BeginForm())
-{
-    <div class="form-horizontal">
-        <h4>Material</h4>
-        <hr/>
-        @Html.HiddenFor(model => model.MaterialId)
-        <div class="form-group">
-            <label asp-for="@Model.MaterialTitle"></label>
-            <div>
-                <input asp-for="@Model.MaterialTitle" class="form-control">
-                <span asp-validation-for="@Model.MaterialTitle"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="@Model.MaterialLocation"></label>
-            <div>
-                <input asp-for="@Model.MaterialLocation" class="form-control">
-                <span asp-validation-for="@Model.MaterialLocation"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="@Model.Author"></label>
-            <div>
-                <select asp-for="@Model.Author" 
-                asp-items="@Model.Authors">
-            </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="@Model.Type"></label>
-            <div>
-                <select asp-for="@Model.Type" 
-                asp-items="@Model.Types">
-            </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Save" class="btn btn-primary">
-            <a asp-action="index"  
-                class="btn btn-danger m-1">
-                Go Back
-            </a>
-        </div>
-    </div>
-}*@
-
 @section Scripts 
 {
     <partial name="_ValidationScriptsPartial" />

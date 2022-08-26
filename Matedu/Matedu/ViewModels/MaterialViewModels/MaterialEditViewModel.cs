@@ -4,9 +4,11 @@
     {
         public int MaterialId { get; set; }
         [Required]
+        [Display(Name = "Material Title")]
         public string MaterialTitle { get; set; }
         [Required]
         [MaxLength(255)]
+        [Display(Name = "Material Location")]
         public string MaterialLocation { get; set; }
         [Required]
         public int Author { get; set; }
