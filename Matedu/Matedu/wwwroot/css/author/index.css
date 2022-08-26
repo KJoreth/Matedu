@@ -1,0 +1,31 @@
+﻿.authors-section{
+    margin-top: 100px;
+}
+
+.search-field {
+    background-color: #4A42BD;
+    border-radius: 50px;
+}
+
+.filters {
+    border-top: solid 1px #E2BB4F;
+}
+
+.filter {
+    font-size: larger;
+}
+
+.author-box {
+    background-color: #8E5AE9;
+    border-radius: 10px;
+    border-color: #4A42BD;
+    box-shadow: 5px 5px #E2BB4F;
+}
+
+.title {
+    width: 40%;
+}
+
+.info {
+    width: 40%;
+}

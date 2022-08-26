@@ -11,9 +11,29 @@ namespace Matedu.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
+            ViewData["NameSortParm"] = sortOrder == "name" ? "" : "name";
+            ViewData["MaterialCountSortParm"] = sortOrder == "counter" ? "" : "counter";
+            ViewData["SearchParm"] = searchString;
+
             List<AuthorSimpleDTO> authors = await _authorServices.GetAllAsync();
+
+            if (!string.IsNullOrEmpty(searchString))
+                authors = authors.Where(a => a.Name.ToLower().Contains(searchString.ToLower())).ToList();
+
+            switch (sortOrder)
+            {
+                case "name":
+                    authors = authors.OrderBy(a => a.Name).ToList();
+                    break;
+                case "counter":
+                    authors = authors.OrderByDescending(a => a.MaterialCounter).ToList();
+                    break;
+                default:
+                    break;
+            }
+
             return View(authors);
         }
 

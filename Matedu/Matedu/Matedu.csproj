@@ -13,6 +13,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Content Remove="wwwroot\css\index.css" />
 	  <Content Remove="wwwroot\css\material\details.css" />
 	  <Content Remove="wwwroot\css\material\editsAndCreate.css" />
 	  <Content Remove="wwwroot\css\material\index.css" />
