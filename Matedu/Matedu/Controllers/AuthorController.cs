@@ -71,7 +71,7 @@ namespace Matedu.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
             => View();
         [HttpPost]
         public async Task<IActionResult> Create(AuthorCreateDTO model)

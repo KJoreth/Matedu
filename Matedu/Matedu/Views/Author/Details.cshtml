@@ -1,11 +1,45 @@
 ﻿@model AuthorDetailedDTO
 
-<p>Name: @Model.Name</p>
-<p>Description: @Model.Description</p>
-<p>Material Count: @Model.MaterialCounter</p>
-<p>Materials: </p>
-@foreach(MaterialSimpleDTO material in @Model.Materials)
-{
-    <p>@material.Title</p>
+@{
+    ViewData["Title"] = "Material details";
 }
+<link rel="stylesheet" href="~/css/author/detials.css" asp-append-version="true" />
+
+<div class="container author-section">
+    <div class="author-name bg-purple ms-auto me-auto text-center py-4 px-4">
+        <h2>@Model.Name</h2>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12 col-md-6 col-lg-5">
+            <div class="bg-purple author-info">
+                <div class="d-flex flex-column justify-content-between align-items-center px-5 pt-3 mb-4 w-100">
+                    <div class="mb-2 d-flex w-100 justify-content-between align-items-center">
+                        <i class="icon-quote-right icon-2x me-3"></i>
+                        <p class="m-0 w-75 detail">Description: @Model.Description</p>
+                    </div>
+                    <div class="mb-2 d-flex w-100 justify-content-between align-items-center">
+                        <i class="icon-trophy icon-2x me-3"></i>
+                        <p class="m-0 w-75 detail">Number of Materials: @Model.MaterialCounter</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-7">
+            <div class="bg-blue py-3 px-3 d-flex flex-column align-items-center">
+                <h3>Educational Materials:</h3>
+                @foreach (var material in Model.Materials)
+                {
+                    <div class="material-box py-2 mb-4 w-100">
+                        <div class="row">
+                            <div class="col d-flex justify-content-center align-items-center color-yellow">
+                                <a class="color-yellow" asp-controller="material" asp-action="details" asp-route-id="@material.Id"><b>@material.Title</b></a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+         </div>
+    </div>    
+</div>
+
 
