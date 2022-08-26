@@ -1,6 +1,66 @@
 ﻿@model MaterialEditViewModel
 
-@using (Html.BeginForm())
+@{
+    ViewData["Title"] = "Material edit";
+}
+<link rel="stylesheet" href="~/css/material/editsAndCreate.css" asp-append-version="true" />
+
+<div class="container form-section bg-purple px-4 py-4 w-75">
+    <h2 class="color-yellow ps-5 mb-4">Edit material</h2>
+    @using (Html.BeginForm())
+    {
+        <div class="form-horizontal">
+            @Html.HiddenFor(model => model.MaterialId)
+            <div class="d-flex row justify-content-around">
+                <div class="form-group col-12 col-md-5">
+                    <label asp-for="@Model.MaterialTitle"></label>
+                    <div>
+                        <input asp-for="@Model.MaterialTitle" class="form-control">
+                        <span asp-validation-for="@Model.MaterialTitle"></span>
+                    </div>
+                </div>
+                <div class="form-group col-12 col-md-5">
+                    <label asp-for="@Model.MaterialLocation"></label>
+                    <div>
+                        <input asp-for="@Model.MaterialLocation" class="form-control">
+                        <span asp-validation-for="@Model.MaterialLocation"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-flex row justify-content-around">
+                <div class="form-group col-12 col-md-5">
+                    <label asp-for="@Model.Author"></label>
+                    <div>
+                        <select asp-for="@Model.Author" 
+                        asp-items="@Model.Authors">
+                    </select>
+                    </div>
+                </div>
+                <div class="form-group col-12 col-md-5">
+                    <label asp-for="@Model.Type"></label>
+                    <div>
+                        <select asp-for="@Model.Type" 
+                        asp-items="@Model.Types">
+                    </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group mt-5 d-flex justify-content-md-center">
+                <input type="submit" value="Save" class="btn btn-yellow">
+                <a asp-action="index"  
+                    class="btn btn-green ms-4">
+                    Go Back
+                </a>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+@*@using (Html.BeginForm())
 {
     <div class="form-horizontal">
         <h4>Material</h4>
@@ -44,8 +104,7 @@
             </a>
         </div>
     </div>
-
-}
+}*@
 
 @section Scripts 
 {
