@@ -14,10 +14,12 @@
 
 	<ItemGroup>
 	  <Content Remove="wwwroot\css\author\detials.css" />
+	  <Content Remove="wwwroot\css\author\editAndCreate.css" />
 	  <Content Remove="wwwroot\css\index.css" />
 	  <Content Remove="wwwroot\css\material\details.css" />
 	  <Content Remove="wwwroot\css\material\editsAndCreate.css" />
 	  <Content Remove="wwwroot\css\material\index.css" />
+	  <Content Remove="wwwroot\css\type\index.css" />
 	</ItemGroup>
 
   <ItemGroup>

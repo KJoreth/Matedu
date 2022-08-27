@@ -9,9 +9,19 @@ namespace Matedu.Controllers
             => _typeServices = services;
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
             var types = await _typeServices.GetAllAsync();
+
+            ViewData["NameSortParm"] = sortOrder == "name" ? "" : "name";
+            ViewData["SearchParm"] = searchString;
+
+            if (!string.IsNullOrEmpty(searchString))
+                types = types.Where(t => t.Name.ToLower().Contains(searchString.ToLower())).ToList();
+
+            if (sortOrder == "name")
+                types = types.OrderBy(t => t.Name).ToList();
+
             return View(types);
         }
 
