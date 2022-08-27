@@ -1,0 +1,28 @@
+﻿.type-section {
+    margin-top: 100px;
+}
+
+.type-name {
+    border-radius: 50px;
+    width: 50%;
+    box-shadow: 5px 5px #E2BB4F;
+}
+
+.type-info {
+    box-shadow: 5px 5px #E2BB4F;
+    border-radius: 10px;
+}
+
+.detail {
+    font-size: larger;
+}
+
+.material-box {
+    background-color: #4A42BD;
+    border-radius: 10px;
+    box-shadow: 5px 5px #E2BB4F;
+}
+
+a :hover {
+    color: white;
+}
