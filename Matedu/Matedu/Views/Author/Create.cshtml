@@ -7,35 +7,39 @@
     </script>
 }
 
-@using (Html.BeginForm())
-{
-    <div class="form-horizontal">
-        <h4>Author</h4>
-        <hr/>
-        <div class="form-group">
-            <label asp-for="Name"></label>
-            <div>
-                <input asp-for="Name" class="form-control">
-                <span asp-validation-for="Name"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="Description"></label>
-            <div>
-                <input asp-for="Description" class="form-control">
-                <span asp-validation-for="Description"></span>
-            </div>
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Save" class="btn btn-primary">
-            <a asp-action="index"  
-                class="btn btn-danger m-1">
-                Go Back
-            </a>
-        </div>
-    </div>
+<link rel="stylesheet" href="~/css/author/editAndCreate.css" asp-append-version="true" />
 
-}
+<div class="container form-section bg-purple px-4 py-4 w-75">
+    <h2 class="color-yellow ps-5 mb-4">Create author</h2>
+    @using (Html.BeginForm())
+    {
+        <div class="form-horizontal">
+            <div class="d-flex row justify-content-around">
+                <div class="form-group col-12 col-md-5">
+                    <label asp-for="@Model.Name"></label>
+                    <div>
+                        <input asp-for="@Model.Name" class="form-control">
+                        <span asp-validation-for="@Model.Name"></span>
+                    </div>
+                </div>
+                <div class="form-group col-12 col-md-5">
+                    <label asp-for="@Model.Description"></label>
+                    <div>
+                        <input asp-for="@Model.Description" class="form-control">
+                        <span asp-validation-for="@Model.Description"></span>
+                    </div>
+                </div>
+            </div>                     
+            <div class="form-group mt-5 d-flex justify-content-md-center">
+                <input type="submit" value="Save" class="btn btn-yellow">
+                <a asp-action="index"  
+                    class="btn btn-green ms-4">
+                    Go Back
+                </a>
+            </div>
+        </div>
+    }
+</div>
 
 @section Scripts 
 {
