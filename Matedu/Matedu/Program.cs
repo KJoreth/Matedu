@@ -12,7 +12,7 @@ builder.Services.AddControllersWithViews();
 var connectionString = builder.Configuration["ConnectionStrings:DefaultConnection"];
 builder.Services.AddDb(connectionString);
 builder.Services.AddDAL();
-builder.Services.AddRoles();
+builder.Services.AddIdentity();
 builder.Services.AddServices();
 builder.Services.AddRazorPages();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

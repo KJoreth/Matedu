@@ -15,8 +15,11 @@ namespace Matedu.Extensions
         public static void AddDb(this IServiceCollection service, string connectionString)
             => service.AddDbContext<MateduContext>(options => options.UseSqlServer(connectionString));
 
-        public static void AddRoles(this IServiceCollection service)
-            => service.AddDefaultIdentity<IdentityUser>()
+        public static void AddIdentity(this IServiceCollection service)
+            => service.AddDefaultIdentity<IdentityUser>(o =>
+            {
+                o.User.RequireUniqueEmail = true;
+            })
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<MateduContext>();
         public static void AddServices(this IServiceCollection service)
