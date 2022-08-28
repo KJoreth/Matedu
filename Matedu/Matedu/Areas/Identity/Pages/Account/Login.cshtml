@@ -7,18 +7,19 @@
 
 <div class="container mt-5 pt-5 d-flex align-items-center flex-column">
     <div class="row w-100 d-flex justify-content-center">
-        <div class="col-md-4">
+        <div class="col-11 col-md-8 col-lg-4 pt-2 pb-5 bg-purple"
+             style="border-radius: 10px; box-shadow: 5px 5px #E2BB4F;">
             <section>
                 <form id="account" method="post">
-                    <h1>@ViewData["Title"]</h1>
+                    <h1 class="color-yellow">@ViewData["Title"]</h1>
                     <hr />
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-floating text-black">
+                    <div class="form-floating text-black mb-3">
                         <input asp-for="Input.Username" class="form-control" autocomplete="username" aria-required="true" />
                         <label asp-for="Input.Username" class="form-label"></label>
                         <span asp-validation-for="Input.Username" class="text-danger"></span>
                     </div>
-                    <div class="form-floating text-black">
+                    <div class="form-floating text-black mb-3">
                         <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
                         <label asp-for="Input.Password" class="form-label"></label>
                         <span asp-validation-for="Input.Password" class="text-danger"></span>
