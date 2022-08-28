@@ -85,3 +85,7 @@ footer {
 .color-yellow {
     color: #E2BB4F;
 }
+
+.nav-link.active {
+    background-color: #8E5AE9;
+}

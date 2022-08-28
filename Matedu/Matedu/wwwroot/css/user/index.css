@@ -1,0 +1,36 @@
+﻿.user-section {
+    margin-top: 100px;
+}
+
+.user-name {
+    border-radius: 50px;
+    width: 50%;
+    box-shadow: 5px 5px #E2BB4F;
+}
+
+.user-info {
+    box-shadow: 5px 5px #E2BB4F;
+    border-radius: 10px
+}
+
+.detail {
+    font-size: larger;
+}
+
+.review-box {
+    background-color: #4A42BD;
+    border-radius: 10px;
+    box-shadow: 5px 5px #E2BB4F;
+}
+
+.review-text {
+    word-wrap: break-word;
+}
+
+a {
+    color: #E2BB4F;
+}
+
+a:hover{
+    color: white;
+}

@@ -30,5 +30,11 @@
             await _unitOfWork.ReviewRepository.RemoveAsync(review);
             await _unitOfWork.CompleteUnitAsync();
         }
+
+        public async Task<List<ReviewDetailedDTO>> GetReviesOfUserAsync(string username)
+        {
+            var reviews = await _unitOfWork.ReviewRepository.GetAllOfUser(username);
+            return _mapper.Map<List<ReviewDetailedDTO>>(reviews);
+        }
     }
 }

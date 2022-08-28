@@ -17,6 +17,14 @@ namespace Matedu.Data.DAL.Repositories
                 .FirstOrDefaultAsync();
         }
 
+        public async Task<List<Review>> GetAllOfUser(string username)
+        {
+            return await MateduContext.Reviews
+                .Where(x => x.UserName == username)
+                .Include(x => x.Material)
+                .ToListAsync();
+        }
+
         public async Task<bool> AnyByIdAsync(int id)
             => await MateduContext.Reviews
             .Where(x => x.Id == id)
