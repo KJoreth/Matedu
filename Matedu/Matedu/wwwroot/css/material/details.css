@@ -18,6 +18,10 @@
     box-shadow: 5px 5px #E2BB4F;
 }
 
+.review-text {
+    word-wrap: break-word;
+}
+
 .material-info {
     box-shadow: 5px 5px #E2BB4F;
     border-radius: 10px;

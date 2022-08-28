@@ -2,6 +2,7 @@
 {
     public interface IReviewServices
     {
-        Task CreateAsync(ReviewCreateViewModel model);
+        Task CreateAsync(ReviewCreateViewModel model, string username);
+        Task DeleteAsync(int id);
     }
 }

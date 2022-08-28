@@ -18,4 +18,5 @@ global using Matedu.ViewModels.MaterialViewModels;
 global using Matedu.ViewModels.ReviewViewModels;
 global using Microsoft.AspNetCore.Mvc.Rendering;
 global using Matedu.ViewModels.HomeViewModels;
+global using System.Security.Claims;
 
