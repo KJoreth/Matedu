@@ -26,10 +26,17 @@ namespace Matedu.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Delete(int id, int materialId)
+        public async Task<IActionResult> DeleteFromMaterialPage(int id, int materialId)
         {
             await _reviewServices.DeleteAsync(id);
             return RedirectToAction("details", "material", new { id = materialId });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> DeleteFromUserPage(int id, string username)
+        {
+            await _reviewServices.DeleteAsync(id);
+            return RedirectToAction("index", "user", new { username = username });
         }
     }
 }
