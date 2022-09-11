@@ -19,4 +19,7 @@ global using Matedu.ViewModels.ReviewViewModels;
 global using Microsoft.AspNetCore.Mvc.Rendering;
 global using Matedu.ViewModels.HomeViewModels;
 global using System.Security.Claims;
-
+global using Microsoft.AspNetCore.Mvc.Filters;
+global using Microsoft.AspNetCore.Mvc.ModelBinding;
+global using Microsoft.AspNetCore.Mvc.ViewFeatures;
+global using Matedu.Data.Exceptions;

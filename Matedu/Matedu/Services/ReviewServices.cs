@@ -12,6 +12,9 @@
 
         public async Task CreateAsync(ReviewCreateViewModel model, string username)
         {
+            if (await _unitOfWork.ReviewRepository.AnyByUsernameAsync(username))
+                throw new ReviewAlreadyExistsException("This user has added review for this material already");
+
             Review review = new()
             {
                 MaterialId = model.MaterialId,

@@ -1,4 +1,5 @@
-﻿namespace Matedu.Services
+﻿
+namespace Matedu.Services
 {
     public class AuthorServices : IAuthorServices
     {
@@ -38,6 +39,9 @@
 
         public async Task EditAsync(AuthorEditDTO model)
         {
+            if (await _unitOfWork.AuthorRepository.AnyByNameAsync(model.Name))
+                throw new ResourceAlreadyExistsException($"Author with name {model.Name} already exists");
+
             Author author = await _unitOfWork.AuthorRepository.GetSingleByIdAsync(model.Id);
             _mapper.Map(model, author);
             await _unitOfWork.CompleteUnitAsync();
@@ -45,6 +49,9 @@
 
         public async Task CreateAsync(AuthorCreateDTO model)
         {
+            if (await _unitOfWork.AuthorRepository.AnyByNameAsync(model.Name))
+                throw new ResourceAlreadyExistsException($"Author with name {model.Name} already exists");
+
             Author author = _mapper.Map<Author>(model);
             await _unitOfWork.AuthorRepository.AddAsync(author);
             await _unitOfWork.CompleteUnitAsync();

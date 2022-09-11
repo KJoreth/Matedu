@@ -2,6 +2,10 @@ using Matedu.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Matedu.Extensions;
+using Matedu.Middlewares;
+using static System.Net.Mime.MediaTypeNames;
+using Microsoft.AspNetCore.Diagnostics;
+using Matedu.Data.Exceptions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +22,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 
-
+builder.Services.AddScoped<ErrorHandlingMiddleware>();
 
 var app = builder.Build();
 
@@ -27,8 +31,12 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    app.UseHsts();  
 }
+
+
+app.UseMiddleware<ErrorHandlingMiddleware>();
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

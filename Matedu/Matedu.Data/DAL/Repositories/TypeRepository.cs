@@ -32,5 +32,10 @@ namespace Matedu.Data.DAL.Repositories
             => await MateduContext.Types
             .Where(x => x.Id == id)
             .AnyAsync();
+
+        public async Task<bool> AnyByNameAsync(string name)
+            => await MateduContext.Types
+            .Where(x => x.Name == name)
+            .AnyAsync();
     }
 }

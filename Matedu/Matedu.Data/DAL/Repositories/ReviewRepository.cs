@@ -29,5 +29,10 @@ namespace Matedu.Data.DAL.Repositories
             => await MateduContext.Reviews
             .Where(x => x.Id == id)
             .AnyAsync();
+
+        public async Task<bool> AnyByUsernameAsync(string username)
+            => await MateduContext.Reviews
+            .Where(x => x.UserName == username)
+            .AnyAsync();
     }
 }

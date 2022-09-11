@@ -31,6 +31,9 @@
 
         public async Task EditAsync(TypeEditDTO model)
         {
+            if (await _unitOfWork.TypeRepository.AnyByNameAsync(model.Name))
+                throw new ResourceAlreadyExistsException($"{model.Name} type already exists");
+
             var type = await _unitOfWork.TypeRepository.GetSingleByIdAsync(model.Id);
             _mapper.Map(model, type);
             await _unitOfWork.CompleteUnitAsync();
@@ -45,6 +48,9 @@
 
         public async Task CreateAsync(TypeCreateDTO model)
         {
+            if (await _unitOfWork.TypeRepository.AnyByNameAsync(model.Name))
+                throw new ResourceAlreadyExistsException($"{model.Name} type already exists");
+
             var type = _mapper.Map<MaterialType>(model);
             await _unitOfWork.TypeRepository.AddAsync(type);
             await _unitOfWork.CompleteUnitAsync();

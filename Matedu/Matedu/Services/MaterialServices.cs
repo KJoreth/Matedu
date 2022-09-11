@@ -43,6 +43,9 @@ namespace Matedu.Services
 
         public async Task UpdateAsync(MaterialEditViewModel model)
         {
+            if (await _unitOfWork.MaterialRepository.AnyByTtileAsync(model.MaterialTitle))
+                throw new ResourceAlreadyExistsException($"Material with title {model.MaterialTitle} already exists");
+
             var material = await _unitOfWork.MaterialRepository.GetSingleWithAllFieldsByIdAsync(model.MaterialId);
             var author = await _unitOfWork.AuthorRepository.GetSingleWithAllFieldsByIdAsync(model.Author);
             var type = await _unitOfWork.TypeRepository.GetSingleWithAllFieldsByIdAsync(model.Type);
@@ -65,6 +68,9 @@ namespace Matedu.Services
 
         public async Task CreateAsync(MaterialCreateViewModel model)
         {
+            if (await _unitOfWork.MaterialRepository.AnyByTtileAsync(model.MaterialTitle))
+                throw new ResourceAlreadyExistsException($"Material with title {model.MaterialTitle} already exists");
+
             Material material = new()
             {
                 Title = model.MaterialTitle,
