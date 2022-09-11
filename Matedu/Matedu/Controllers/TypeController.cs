@@ -33,6 +33,7 @@ namespace Matedu.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id)
         {
             var type = await _typeServices.GetSingleToEditAsync(id);
@@ -40,6 +41,7 @@ namespace Matedu.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(TypeEditDTO model)
         {
             if (ModelState.IsValid)
@@ -52,10 +54,12 @@ namespace Matedu.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
             => View();
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(TypeCreateDTO model)
         {
             if (ModelState.IsValid)
@@ -69,6 +73,7 @@ namespace Matedu.Controllers
 
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             await _typeServices.DeleteAsync(id);

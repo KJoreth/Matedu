@@ -8,6 +8,7 @@ namespace Matedu.Controllers
             => _reviewServices = reviewServices;
 
         [HttpGet]
+        [Authorize(Roles = "Admin, User")]
         public IActionResult Create(int materialId)
             => View(new ReviewCreateViewModel() { MaterialId = materialId});
 
@@ -26,6 +27,7 @@ namespace Matedu.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin, User")]
         public async Task<IActionResult> DeleteFromMaterialPage(int id, int materialId)
         {
             await _reviewServices.DeleteAsync(id);
@@ -35,8 +37,13 @@ namespace Matedu.Controllers
         [HttpGet]
         public async Task<IActionResult> DeleteFromUserPage(int id, string username)
         {
-            await _reviewServices.DeleteAsync(id);
-            return RedirectToAction("index", "user", new { username = username });
+            if(User.Identity.Name == username)
+            {
+                await _reviewServices.DeleteAsync(id);
+                return RedirectToAction("index", "user", new { username = username });
+            }
+
+            return LocalRedirect("/Identity/Account/AccessDenied"); 
         }
     }
 }

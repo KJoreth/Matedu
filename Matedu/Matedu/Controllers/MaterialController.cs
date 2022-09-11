@@ -46,12 +46,14 @@ namespace Matedu.Controllers
             return View(material);
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id)
         {
             var model = await _materialServices.GetViewModelForEditAsync(id);
             return View(model);
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult>Edit(MaterialEditViewModel model)
         {
             if (ModelState.IsValid)
@@ -64,6 +66,7 @@ namespace Matedu.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create()
         {
             var model = await _materialServices.GetViewModelForCreateAsync();
@@ -71,6 +74,7 @@ namespace Matedu.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(MaterialCreateViewModel model)
         {
             if (ModelState.IsValid)
@@ -83,6 +87,7 @@ namespace Matedu.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             await _materialServices.DeleteAsync(id);

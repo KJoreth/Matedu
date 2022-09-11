@@ -10,8 +10,13 @@
         [HttpGet]
         public async Task<IActionResult> Index(string username)
         {
-            var reviews = await _reviewServices.GetReviesOfUserAsync(username);
-            return View(reviews);
+            if(User.Identity.Name == username)
+            {
+                var reviews = await _reviewServices.GetReviesOfUserAsync(username);
+                return View(reviews);
+            }
+
+            return LocalRedirect("/Identity/Account/AccessDenied");
         }
     }
 }

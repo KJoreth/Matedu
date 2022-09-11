@@ -8,13 +8,12 @@ namespace Matedu.Controllers
         public HomeController(IHomeServices homeServices)
             => _homeServices = homeServices;
 
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var model = await _homeServices.GetViewModelAsync();
             return View(model);
-        }
-
-        
+        }   
         public IActionResult Error()
         {
             return View();

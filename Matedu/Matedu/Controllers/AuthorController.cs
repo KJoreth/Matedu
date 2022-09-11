@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace Matedu.Controllers
+﻿namespace Matedu.Controllers
 {
     public class AuthorController : Controller
     {
@@ -38,6 +36,7 @@ namespace Matedu.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             await _authorServices.DeleteAsync(id);
@@ -52,6 +51,7 @@ namespace Matedu.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id)
         {
             var author = await _authorServices.GetSingleToEditAsync(id);
@@ -59,6 +59,7 @@ namespace Matedu.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(AuthorEditDTO model)
         {
             if (ModelState.IsValid)
@@ -71,9 +72,11 @@ namespace Matedu.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
             => View();
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(AuthorCreateDTO model)
         {
             if (ModelState.IsValid)
