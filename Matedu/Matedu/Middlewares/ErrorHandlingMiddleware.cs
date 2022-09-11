@@ -1,6 +1,4 @@
-﻿using Matedu.Data.Exceptions;
-
-namespace Matedu.Middlewares
+﻿namespace Matedu.Middlewares
 {
     public class ErrorHandlingMiddleware : IMiddleware
     {

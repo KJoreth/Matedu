@@ -21,3 +21,5 @@ global using Matedu.ViewModels.HomeViewModels;
 global using System.Security.Claims;
 global using Matedu.Data.Exceptions;
 global using Microsoft.AspNetCore.Authorization;
+global using Matedu.Extensions;
+global using Matedu.Middlewares;

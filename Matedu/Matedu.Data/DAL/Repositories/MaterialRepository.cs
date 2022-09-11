@@ -1,6 +1,4 @@
-﻿using Matedu.Data.DAL.Interfaces;
-
-namespace Matedu.Data.DAL.Repositories
+﻿namespace Matedu.Data.DAL.Repositories
 {
     public class MaterialRepository : BaseRepository<Material>, IMaterialRepository
     {
@@ -20,30 +18,12 @@ namespace Matedu.Data.DAL.Repositories
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<List<Material>> GetAllWithAuthorAndTypeAsync()
-            => await MateduContext.Materials
-                .Include(x => x.Author)
-                .Include(x => x.Type)
-                .ToListAsync();
         public async Task<List<Material>> GetAllWithAllFieldsAsync()
             => await MateduContext.Materials
                 .Include(x => x.Author)
                 .Include(x => x.Type)
                 .Include(x => x.Reviews)
                 .ToListAsync();
-
-        public async Task<List<Material>> GetAllByTypeIdAsync(int typeId)
-        {
-            if (!await MateduContext.Types.Where(x => x.Id == typeId).AnyAsync())
-                throw new ResourceNotFoundException($"Type with id: {typeId} was not found");
-
-            return await MateduContext.Materials
-                .Where(x => x.Type.Id == typeId)
-                .Include(x => x.Author)
-                .Include(x => x.Type)
-                .Include(x => x.Reviews)
-                .ToListAsync();
-        }
 
         public async Task<Material> GetSingleByIdAsync(int id)
         {

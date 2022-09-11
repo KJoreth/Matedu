@@ -1,6 +1,4 @@
-﻿using Matedu.Data.DAL.Interfaces;
-
-namespace Matedu.Data.DAL.Repositories
+﻿namespace Matedu.Data.DAL.Repositories
 {
     public class TypeRepository : BaseRepository<MaterialType>, ITypeRepository
     {

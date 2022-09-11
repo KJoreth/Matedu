@@ -1,6 +1,4 @@
-﻿
-
-namespace Matedu.DTOs.AuthorDTOs
+﻿namespace Matedu.DTOs.AuthorDTOs
 {
     public class AuthorEditDTO
     {

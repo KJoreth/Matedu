@@ -1,6 +1,4 @@
-﻿using Matedu.Data.DAL.Interfaces;
-
-namespace Matedu.Data.DAL.UnitOfWork
+﻿namespace Matedu.Data.DAL.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {

@@ -1,6 +1,4 @@
-﻿using Matedu.Data.DAL.Interfaces;
-
-namespace Matedu.Data.DAL.Repositories
+﻿namespace Matedu.Data.DAL.Repositories
 {
     public class ReviewRepository : BaseRepository<Review>, IReviewRepository
     {
@@ -30,9 +28,10 @@ namespace Matedu.Data.DAL.Repositories
             .Where(x => x.Id == id)
             .AnyAsync();
 
-        public async Task<bool> AnyByUsernameAsync(string username)
+
+        public async Task<bool> UserAlreadyAddedReview(string username, int id)
             => await MateduContext.Reviews
-            .Where(x => x.UserName == username)
+            .Where(x => x.UserName == username && x.MaterialId == id)
             .AnyAsync();
     }
 }

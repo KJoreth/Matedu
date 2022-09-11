@@ -4,9 +4,7 @@
     {
         Task<bool> AnyByIdAsync(int id);
         Task<bool> AnyByTtileAsync(string title);
-        Task<List<Material>> GetAllByTypeIdAsync(int typeId);
         Task<List<Material>> GetAllWithAllFieldsAsync();
-        Task<List<Material>> GetAllWithAuthorAndTypeAsync();
         Task<Material> GetSingleByIdAsync(int id);
         Task<Material> GetSingleWithAllFieldsByIdAsync(int id);
     }

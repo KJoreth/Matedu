@@ -1,6 +1,4 @@
 ﻿
-using Matedu.Data.DAL.Interfaces;
-
 namespace Matedu.Data.DAL.Repositories
 {
     public abstract class BaseRepository<T> : IBaseRepository<T> where T : class

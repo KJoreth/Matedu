@@ -1,12 +1,3 @@
-using Matedu.Data.Context;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
-using Matedu.Extensions;
-using Matedu.Middlewares;
-using static System.Net.Mime.MediaTypeNames;
-using Microsoft.AspNetCore.Diagnostics;
-using Matedu.Data.Exceptions;
-
 var builder = WebApplication.CreateBuilder(args);
 
 
